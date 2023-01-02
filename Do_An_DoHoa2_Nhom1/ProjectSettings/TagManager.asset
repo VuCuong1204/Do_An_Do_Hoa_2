@@ -11,6 +11,10 @@ TagManager:
   - Tree
   - Gift
   - obstacle
+  - Candy
+  - Gift_l1
+  - Gift_l2
+  - Die
   layers:
   - Default
   - TransparentFX

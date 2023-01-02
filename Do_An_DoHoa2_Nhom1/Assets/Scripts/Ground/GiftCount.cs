@@ -32,5 +32,23 @@ public class GiftCount : MonoBehaviour
             setCountText();
            // setScore();
         }
+
+        if (other.gameObject.tag == "Gift_l1")
+        {
+            other.gameObject.SetActive(false);
+            countGifts = countGifts + 3;
+            //  sumScore = sumScore + 1;
+            setCountText();
+            // setScore();
+        }
+
+        if (other.gameObject.tag == "Gift_l2")
+        {
+            other.gameObject.SetActive(false);
+            countGifts = countGifts + 5;
+            //  sumScore = sumScore + 1;
+            setCountText();
+            // setScore();
+        }
     }
 }

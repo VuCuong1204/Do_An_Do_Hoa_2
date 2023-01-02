@@ -1,57 +1,30 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Boss_controller : MonoBehaviour
 {
-    public float moveSpeed = 5;
-    public float leftRightSpeed;
-    public GameObject gameOverText;
-
-    Vector3 jump;
-
-    public float jumpForce = 2.0f;
-    public bool isGrounded;
-
-    Rigidbody rb;
-    private void Start()
+    private bool turnLeft, turnRight;
+    private float speed = 5.0f;
+    private CharacterController myCharacterController;
+    void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        jump = new Vector3(0.0f, 2.0f, 0.0f);
-        // gameOverText.SetActive(false);
-
+        myCharacterController = GetComponent<CharacterController>();
     }
+
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("platform"))
-        {
-            isGrounded = true;
-        }
-
         if (collision.gameObject.CompareTag("Player"))
         {
             FindObjectOfType<GameManager>().showGamePanel(true);
-            //gameOverText.SetActive(true);
-            moveSpeed = 0f;
         }
     }
-    private void LateUpdate()
-    {
-        //Jump
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
-        {
-            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
-        }
 
-        transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
-    }
-    private void OnTriggerEnter(Collider other)
+    // Update is called once per frame
+    void Update()
     {
-   
-    }
-    IEnumerator timeSpeed()
-    {
-        yield return new WaitForSeconds(0.6f);
-        moveSpeed = 5;
+
+        // myCharacterController.SimpleMove(new Vector3(0f, 0f, 0f));
+        myCharacterController.Move(transform.forward * speed * Time.deltaTime);
     }
 }
