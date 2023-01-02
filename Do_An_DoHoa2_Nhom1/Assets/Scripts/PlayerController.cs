@@ -68,6 +68,10 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(timeSpeed());
             other.gameObject.SetActive(false);
         }
+        if (other.gameObject.tag == "Sence_Map2")
+        {
+            FindObjectOfType<MenuGame>().NextSence();
+        }
         if (other.gameObject.tag == "Tree")
         {
             moveSpeed = 2;

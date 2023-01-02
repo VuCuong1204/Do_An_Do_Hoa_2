@@ -15,6 +15,7 @@ TagManager:
   - Gift_l1
   - Gift_l2
   - Die
+  - Sence_Map2
   layers:
   - Default
   - TransparentFX

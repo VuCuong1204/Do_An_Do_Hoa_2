@@ -7,6 +7,11 @@ public class MenuGame : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void NextSence()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     public void gotoOptionMenu()
     {
         SceneManager.LoadScene("HelpMenu");
